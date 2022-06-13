@@ -31,6 +31,7 @@ class ProductFactory extends Factory
             'size' => $this->faker->randomElement(['S', 'M', 'L', 'XL']),
             'population' => $this->faker->numberBetween(1, 100),
             'description' => $this->faker->paragraph(),
+            'category_id' => $this->faker->numberBetween(1, 3),
         ];
     }
 }
