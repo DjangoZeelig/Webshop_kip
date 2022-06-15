@@ -17021,3 +17021,13 @@ textarea.form-control-lg {
 .bi-filetype-xlsx::before {
   content: "\f793";
 }
+
+body {
+  font-family: "Nunito", sans-serif;
+  color: rgb(171, 39, 61);
+}
+
+.jan {
+  margin: 20px;
+  color: pink;
+}
