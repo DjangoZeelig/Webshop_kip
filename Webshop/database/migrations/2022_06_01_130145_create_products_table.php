@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('size');
             $table->text('population');
             $table->text('description');
+            $table->text('highlighted')->default(0);
             $table->timestamps();
         });
     }
