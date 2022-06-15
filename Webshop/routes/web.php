@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,4 +14,5 @@ use App\Http\Controllers\ProductController;
 */
 
 
-Route::get('/products', [ProductController::class, 'index']);
+Route::get('/products', [\App\Http\Controllers\ProductController::class, 'index']);
+Route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'index']);
