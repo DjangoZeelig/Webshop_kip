@@ -23,6 +23,7 @@
     <div id="app">
         <div class="container-fluid p-0">
             <main>
+                @include('partials.navbar')
                 @yield('content')
             </main>
         </div>

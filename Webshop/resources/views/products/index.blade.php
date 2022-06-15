@@ -1,3 +1,6 @@
+@extends('layouts.master')
+
+@section('content')
 <table class="table table-striped table-bordered" border="1px solid black">
     <thead>
         <tr>
@@ -25,3 +28,4 @@
         @endforeach
     </tbody>
     </table>
+    @endsection
