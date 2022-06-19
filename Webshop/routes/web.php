@@ -25,3 +25,9 @@ Route::get('/admin', [App\Http\Controllers\AdminProductController::class, 'index
 Route::get('products/index-paging', [\App\Http\Controllers\ProductController::class, 'indexPaging']);
 Route::get('products/index-sorting', [\App\Http\Controllers\ProductController::class, 'indexSorting']);
 Route::get('products/index-filtering', [\App\Http\Controllers\ProductController::class, 'indexFiltering']);
+
+
+Route::get('store', [\App\Http\Controllers\StoreController::class, 'index']);
+Route::post('/store/add-to-cart', [\App\Http\Controllers\StoreController::class, 'addToCart']);
+Route::get('cart', [\App\Http\Controllers\CartController::class, 'index']);
+
