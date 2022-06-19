@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\PageController::class, 'showLandingPage']);
 Route::get('/products', [\App\Http\Controllers\ProductController::class, 'index']);
 Route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'index']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin', [App\Http\Controllers\AdminProductController::class, 'index']);
