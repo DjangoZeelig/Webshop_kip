@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
 class Product extends Model
 {
     use HasFactory;
+    use Sortable;
 
     protected $table = 'products';
 
@@ -21,4 +23,11 @@ class Product extends Model
         'description',
         'highlighted',
     ];
+
+
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Category');
+    }
+
 }

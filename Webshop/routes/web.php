@@ -21,3 +21,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/admin', [App\Http\Controllers\AdminProductController::class, 'index']);
+
+Route::get('products/index-paging', [\App\Http\Controllers\ProductController::class, 'indexPaging']);
+Route::get('products/index-sorting', [\App\Http\Controllers\ProductController::class, 'indexSorting']);
+Route::get('products/index-filtering', [\App\Http\Controllers\ProductController::class, 'indexFiltering']);
