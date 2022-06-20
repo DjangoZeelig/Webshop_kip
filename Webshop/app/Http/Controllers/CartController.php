@@ -1,8 +1,9 @@
 <?php
+
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\Product;
-class ProductController extends Controller
+
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -11,44 +12,13 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        return view('products.index', compact('products'));
+        $cart = session()->get('cart');
+        if ($cart == null)
+            $cart = [];
+
+        return view('cart.index')->with('cart', $cart);
     }
 
-    public function indexPaging()
-    {
-        $products = Product::paginate(5);
-        return view('products.index-paging')->with ('products', $products);
-    }
-
-    public function indexSorting()
-    {
-        $products = Product::sortable('')->paginate(5);
-        return view('products.index-sorting')->with ('products', $products);
-    }
-
-    public function indexFiltering(Request $request)
-{
-    $filter = $request->query('filter');
-
-    if (!empty($filter)) {
-        $products = Product::sortable()
-            ->where('products.name', 'like', '%'.$filter.'%')
-            ->orWhere('products.price', 'like', '%'.$filter.'%')
-            ->orWhere('products.color', 'like', '%'.$filter.'%')
-            ->orWhere('products.size', 'like', '%'.$filter.'%')
-            ->orWhere('products.population', 'like', '%'.$filter.'%')
-            ->orWhere('products.description', 'like', '%'.$filter.'%')
-            ->orWhere('products.highlighted', 'like', '%'.$filter.'%')
-            ->orWhere('products.category_id', 'like', '%'.$filter.'%')
-            ->paginate(5);
-    } else {
-        $products = Product::sortable()
-            ->paginate(5);
-    }
-
-    return view('products.index-filtering')->with('products', $products)->with('filter', $filter);
-}
     /**
      * Show the form for creating a new resource.
      *
@@ -58,6 +28,7 @@ class ProductController extends Controller
     {
         //
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -68,6 +39,7 @@ class ProductController extends Controller
     {
         //
     }
+
     /**
      * Display the specified resource.
      *
@@ -78,6 +50,7 @@ class ProductController extends Controller
     {
         //
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -88,6 +61,7 @@ class ProductController extends Controller
     {
         //
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -99,6 +73,7 @@ class ProductController extends Controller
     {
         //
     }
+
     /**
      * Remove the specified resource from storage.
      *
