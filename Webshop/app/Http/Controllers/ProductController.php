@@ -1,7 +1,10 @@
 <?php
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
+
 class ProductController extends Controller
 {
     /**
@@ -28,27 +31,37 @@ class ProductController extends Controller
     }
 
     public function indexFiltering(Request $request)
-{
-    $filter = $request->query('filter');
+    {
+        $filter = $request->query('filter');
 
-    if (!empty($filter)) {
-        $products = Product::sortable()
-            ->where('products.name', 'like', '%'.$filter.'%')
-            ->orWhere('products.price', 'like', '%'.$filter.'%')
-            ->orWhere('products.color', 'like', '%'.$filter.'%')
-            ->orWhere('products.size', 'like', '%'.$filter.'%')
-            ->orWhere('products.population', 'like', '%'.$filter.'%')
-            ->orWhere('products.description', 'like', '%'.$filter.'%')
-            ->orWhere('products.highlighted', 'like', '%'.$filter.'%')
-            ->orWhere('products.category_id', 'like', '%'.$filter.'%')
-            ->paginate(5);
-    } else {
-        $products = Product::sortable()
-            ->paginate(5);
+        if (!empty($filter)) {
+            $products = Product::sortable()
+                ->where('products.name', 'like', '%'.$filter.'%')
+                ->orWhere('products.price', 'like', '%'.$filter.'%')
+                ->orWhere('products.color', 'like', '%'.$filter.'%')
+                ->orWhere('products.size', 'like', '%'.$filter.'%')
+                ->orWhere('products.population', 'like', '%'.$filter.'%')
+                ->orWhere('products.description', 'like', '%'.$filter.'%')
+                ->orWhere('products.highlighted', 'like', '%'.$filter.'%')
+                ->orWhere('products.category_id', 'like', '%'.$filter.'%')
+                ->paginate(5);
+        } else {
+            $products = Product::sortable()
+                ->paginate(5);
+        }
+
+        return view('products.index-filtering')->with('products', $products)->with('filter', $filter);
     }
 
-    return view('products.index-filtering')->with('products', $products)->with('filter', $filter);
-}
+    public function filter($field, $value)
+    {
+        if ($field == 'category') {
+            $category = Category::findOrFail($value);
+            $products = $category->products()->get();
+
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -1,10 +1,5 @@
 @extends('layouts.cartmaster')
 
-@push('head')
-<script>
-
-</script>
-@endpush
 @section('content')
 
 <br>
@@ -18,6 +13,7 @@
 </div>
 
 <h1>Store</h1>
+@include('partials.filter')
 
 @if ($products->count() == 0)
 <tr>
@@ -72,7 +68,7 @@
         $('.add-to-cart').on('click', function(event){
 
             var cart = window.cart || [];
-            cart.push({'id':$(this)data('id'), 'name':$(this).data('name'), 'price':$(this).data('price'), 'qty':$(this).prev('input').val()});
+            cart.push({'id':$(this).data('id'), 'name':$(this).data('name'), 'price':$(this).data('price'), 'qty':$(this).prev('input').val()});
             window.cart = cart;
 
             $.ajax('/store/add-to-cart', {

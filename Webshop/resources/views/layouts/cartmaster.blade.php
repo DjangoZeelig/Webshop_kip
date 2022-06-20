@@ -9,14 +9,11 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Fonts -->
-        <link rel="dns-prefetch" href="//fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-        <link rel="stylesheet" href="/css/font-awesome.min.css">
 
-        <!-- Styles -->
 
         <link href=" {{ asset('css/app.css') }}" rel="stylesheet">
+        <script src="{{ asset('js/app.js') }}"></script>
+
     </head>
     <body>
         <header>
@@ -65,10 +62,10 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/js/jquery.min.js"></script>
+    {{-- <script src="/js/jquery.min.js"></script>
     <script src="/js/popper.min.js"></script>
     <script src="/js/bootstrap.js"></script>
-    <script src="/js/holder.min.js"></script>
+    <script src="/js/holder.min.js"></script> --}}
     @yield('footer-scripts')
     </body>
 </html>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\CartController;
+use App\Models\Category;
 
 class StoreController extends Controller
 {
@@ -12,15 +13,28 @@ class StoreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($field = null, $value = null)
     {
-        $products = Product::get();
+        if ($field == 'category') {
+            $category = Category::findOrFail($value);
+            $products = $category->products()->get();
+        }
+        elseif($field == 'highlighted' && $value == '1') {
+            $products = new Product;
+            $products = $products->highlighted()->get();
+        }
+        else {
+            $products = Product::get();
+        }
+
+
+        $categories = Category::all();
 
         $cart = session()->get('cart');
         if ($cart == null)
             $cart = [];
 
-        return view('store.index')->with('products', $products)->with('cart', $cart);
+        return view('store.index')->with('products', $products)->with('cart', $cart)->with('categories', $categories);
     }
 
     public function addToCart(Request $request)

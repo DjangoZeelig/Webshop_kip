@@ -24,10 +24,10 @@ Route::get('/admin', [App\Http\Controllers\AdminProductController::class, 'index
 
 Route::get('products/index-paging', [\App\Http\Controllers\ProductController::class, 'indexPaging']);
 Route::get('products/index-sorting', [\App\Http\Controllers\ProductController::class, 'indexSorting']);
-Route::get('products/index-filtering', [\App\Http\Controllers\ProductController::class, 'indexFiltering']);
+Route::get('products/index-filtering', [\App\Http\Controllers\ProductController::class, 'indexFiltering'])->name('products.filtering');
+Route::get('products/filter/{filter?}/{value?}', [\App\Http\Controllers\ProductController::class, 'filter'])->name('products.filter');
 
-
-Route::get('store', [\App\Http\Controllers\StoreController::class, 'index']);
+Route::get('store/{filter?}/{value?}', [\App\Http\Controllers\StoreController::class, 'index'])->name('store.index');
 Route::post('/store/add-to-cart', [\App\Http\Controllers\StoreController::class, 'addToCart']);
 Route::get('cart', [\App\Http\Controllers\CartController::class, 'index']);
 

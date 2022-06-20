@@ -30,4 +30,8 @@ class Product extends Model
         return $this->belongsTo('App\Models\Category');
     }
 
+    public function highlighted()
+    {
+        return $this->where('highlighted', 1);
+    }
 }
