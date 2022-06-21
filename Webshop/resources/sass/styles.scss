@@ -8,8 +8,8 @@
 }
 // Navbar
 .navbar {
-    background-color: #81b29a !important;
-    padding: 3% !important;
+    background-color: ##81b29a !important;
+    padding: 2% !important;
     color: #f8f9fa !important;
 }
 .nav-item {
@@ -19,6 +19,11 @@
     color: #f8f9fa !important;
     font-size: x-large !important;
 }
+.btn-outline-success:hover {
+    background-color: #000;
+    border-color: #000;
+}
+
 *,
 *::before,
 *::after {
@@ -78,7 +83,7 @@ img {
     border-radius: 0.25rem;
     box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
     display: flex;
-    flex-direction: column;
+    flex-grow: 1;
     overflow: hidden;
     &:hover {
         .card__image {

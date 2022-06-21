@@ -13,9 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\PageController::class, 'showLandingPage']);
+// Route::get('/lp', [\App\Http\Controllers\PageController::class, 'showLandingPage']);
+Route::get('/lp/filter/{filter?}/{value?}', [\App\Http\Controllers\PageController::class, 'filter'])->name('app.landing');
+
+Route::get('/lp/{filter?}/{value?}', [\App\Http\Controllers\PageController::class, 'index'])->name('app.landing');
+Route::post('/lp/add-to-cart', [\App\Http\Controllers\PageController::class, 'addToCart']);
+
+
 Route::get('/products', [\App\Http\Controllers\ProductController::class, 'index']);
 Route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'index']);
+
 
 Auth::routes();
 
@@ -30,4 +37,6 @@ Route::get('products/filter/{filter?}/{value?}', [\App\Http\Controllers\ProductC
 Route::get('store/{filter?}/{value?}', [\App\Http\Controllers\StoreController::class, 'index'])->name('store.index');
 Route::post('/store/add-to-cart', [\App\Http\Controllers\StoreController::class, 'addToCart']);
 Route::get('cart', [\App\Http\Controllers\CartController::class, 'index']);
+
+// Route::get('products/productoverview', [\App\Http\Controllers\PageController::class, 'showOverviewPage']);
 
