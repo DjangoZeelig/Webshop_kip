@@ -10,14 +10,13 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="/css/font-awesome.min.css">
+
 
     <!-- Styles -->
 
     <link href=" {{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/app.js') }}"></script>
+
 </head>
 
 <body>
@@ -25,7 +24,10 @@
         <div class="container-fluid p-0">
             <main>
                 @include('partials.navbar')
+                @include('partials.filter')
+
                 @yield('content')
+
             </main>
         </div>
     </div>

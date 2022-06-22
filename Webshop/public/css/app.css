@@ -25355,7 +25355,7 @@ readers do not read off random characters that represent icons */
 
 .navbar {
   background-color: #81b29a !important;
-  padding: 3% !important;
+  padding: 2% !important;
   color: #f8f9fa !important;
 }
 
@@ -25366,6 +25366,11 @@ readers do not read off random characters that represent icons */
 .navbar-brand {
   color: #f8f9fa !important;
   font-size: x-large !important;
+}
+
+.btn-outline-success:hover {
+  background-color: #000;
+  border-color: #000;
 }
 
 *,
@@ -25437,7 +25442,7 @@ img {
   border-radius: 0.25rem;
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
   display: flex;
-  flex-direction: column;
+  flex-grow: 1;
   overflow: hidden;
 }
 .card:hover .card__image {
