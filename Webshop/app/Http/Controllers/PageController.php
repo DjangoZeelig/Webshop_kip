@@ -14,11 +14,6 @@ class PageController extends Controller
         return view('app.landing', compact('products'));
     }
 
-    function showOverviewPage()
-    {
-        return view('products.productoverview');
-    }
-
     public function index($field = null, $value = null)
     {
         if ($field == 'category') {

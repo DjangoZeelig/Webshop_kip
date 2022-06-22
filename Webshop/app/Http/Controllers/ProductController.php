@@ -62,6 +62,12 @@ class ProductController extends Controller
         }
     }
 
+    public function article()
+    {
+        $products = Product::all();
+        return view('products.detailpage', compact ('products'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -89,7 +95,11 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        return view('products.detail', [
+            'product' => $product,
+        ]);
     }
     /**
      * Show the form for editing the specified resource.
