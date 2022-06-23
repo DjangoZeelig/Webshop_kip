@@ -8,7 +8,7 @@
     </ul>
 @endisset --}}
 
-@isset($categories)
+{{-- @isset($categories)
 <ul class="nav justify-content-center">
     @foreach ($categories as $category)
     <li class="nav-item">
@@ -16,10 +16,17 @@
     </li>
     @endforeach
 
-  </ul>
+  </ul> --}}
 
+{{-- @endisset --}}
+
+@isset($categories)
+ <div class="container categories topBotomBordersOut">
+        @foreach ($categories as $category)
+            <a href="{{ route('store.index', ['category', $category->id]) }}">{{ $category->name }}</a>
+        @endforeach
+    </div>
 @endisset
-
 {{--
 @isset($categories)
 <div class="dropdown">

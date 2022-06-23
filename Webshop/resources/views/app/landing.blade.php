@@ -1,21 +1,38 @@
-@extends('layouts.master')
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-@section('content')
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+
+
+    <!-- Styles -->
+
+    <link href=" {{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/app.js') }}"></script>
+
+</head>
 {{-- <a type="button" href="{{ route('store.index') }}"> Store </a> --}}
-
+<body>
 <section class="landingHeader">
     <h1>Villa KippenZicht</h1>
     <p>Duurzame woningen voor de moderne kip</p>
     <a class="nav-link" href="{{ route('store.index') }}">
         <button class="GTS">
-        Bekijk onze kippenwoningen
+        Bekijk al onze kippenwoningen
         </button>
     </a>
 </section>
 
 <section style="background-color: #eee;">
     <div class="container py-5">
-      <h4 class="text-center mb-5"><strong>Bestsellers</strong></h4>
+      <h4 class="text-center mb-5"><strong>Onze bestsellers</strong></h4>
 
 
 <ul class="cards">
@@ -34,7 +51,7 @@
                     <li>Description: {{$product->description}}</li>
                 </ul>
                 </p>
-                <button class="btn btn--block card__btn">Button</button>
+                <button class="btn btn--block card__btn">Bekijk product</button>
             </div>
         </div>
     </li>
@@ -82,7 +99,7 @@
           style="background-color: #3b5998;"
           href="#!"
           role="button"
-          ><i class="fa-brands fa-facebook"></i
+          ><i class="bi bi-facebook"></i
         ></a>
 
         <!-- Twitter -->
@@ -91,7 +108,7 @@
           style="background-color: #55acee;"
           href="#!"
           role="button"
-          ><i class="fa-brands fa-twitter"></i
+          ><i class="bi bi-twitter"></i
         ></a>
 
         <!-- Google -->
@@ -100,7 +117,7 @@
           style="background-color: #dd4b39;"
 
           role="button"
-          ><i class="fa-brands fa-google"></i
+          ><i class="bi bi-google"></i
         ></a>
 
         <!-- Instagram -->
@@ -108,7 +125,7 @@
           class="btn btn-primary btn-floating m-1"
           style="background-color: #ac2bac;"
           role="button"
-          ><i class="fa-brands fa-instagram"></i
+          ><i class="bi bi-instagram"></i
         ></a>
 
         <!-- Linkedin -->
@@ -117,7 +134,7 @@
           style="background-color: #0082ca;"
           href="#!"
           role="button"
-          ><i class="fa-brands fa-linkedin-in"></i
+          ><i class="bi bi-linkedin"></i
         ></a>
         <!-- Github -->
         <a
@@ -125,7 +142,7 @@
           style="background-color: #333333;"
           href="#"
           role="button"
-          ><i class="fa-brands fa-github"></i
+          ><i class="bi bi-github"></i
         ></a>
       </section>
       <!-- Section: Social media -->
@@ -142,6 +159,6 @@
 
   </div>
 </div>
-@endsection
 
-
+</body>
+</html>
