@@ -1,4 +1,5 @@
-@extends('layouts.masterLanding')
+@extends('layouts.master')
+
 @section('content')
 {{-- <a type="button" href="{{ route('store.index') }}"> Store </a> --}}
 

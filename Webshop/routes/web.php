@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/lp', [\App\Http\Controllers\PageController::class, 'showLandingPage']);
-// Route::get('/lp/filter/{filter?}/{value?}', [\App\Http\Controllers\PageController::class, 'filter'])->name('app.landing');
+Route::get('/lp/filter/{filter?}/{value?}', [\App\Http\Controllers\PageController::class, 'filter'])->name('app.landing');
 
 // Route::get('/lp/{filter?}/{value?}', [\App\Http\Controllers\PageController::class, 'index'])->name('app.landing');
 

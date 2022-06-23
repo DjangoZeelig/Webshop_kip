@@ -12,7 +12,7 @@
 <ul class="nav justify-content-center">
     @foreach ($categories as $category)
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{{ route('app.landing', ['category', $category->id]) }}">{{ $category->name }}</a>
+        <a class="nav-link active" aria-current="page" href="{{ route('store.index', ['category', $category->id]) }}">{{ $category->name }}</a>
     </li>
     @endforeach
 
