@@ -12,7 +12,7 @@
 </a>
 </div>
 
-<h1>Store</h1>
+<h1>Onze Producten</h1>
 
 @if ($products->count() == 0)
 <tr>
@@ -34,7 +34,7 @@
     <div class="card-body">
       <p class="card-text">{{ $product->category->name }} / {{$product->name}}</p>
       <div class="d-flex justify-content-between align-items-center">
-        <small class="text-muted">Only ${{$product->price}}</small>
+        <small class="text-muted">Slechts ${{$product->price}}</small>
         <div class="btn-group">
             <input type="number" value="1" min="1" max="100">
             <button class="add-to-cart" type="button" class="btn btn-sm btn-outline-secondary"
@@ -67,30 +67,29 @@
         $('.add-to-cart').on('click', function(event){
 
             var cart = window.cart || [];
-            cart.push({'id':$(this).data('id'), 'name':$(this).data('name'), 'price':$(this).data('price'), 'qty':$(this).prev('input').val()});
-            window.cart = cart;
+            cart.push({'id':$(this).data('id'), 'name':$(this).data('name'), 'price':$(this).data('price'), 'qty':$(this).prev('input').val()});            window.cart = cart;
 
-            $.ajax('/store/add-to-cart', {
-                type: 'POST',
-                data: {"_token": "{{ csrf_token() }}", "cart":cart},
-                success: function (data, status, xhr) {
+$.ajax('/store/add-to-cart', {
+    type: 'POST',
+    data: {"_token": "{{ csrf_token() }}", "cart":cart},
+    success: function (data, status, xhr) {
 
-                }
-            });
-
-            updateCartButton();
-        });
-    })
-
-    function updateCartButton() {
-
-        var count = 0;
-        window.cart.forEach(function (item, i) {
-
-            count += Number(item.qty);
-        });
-
-        $('#items-in-cart').html(count);
     }
+});
+
+updateCartButton();
+});
+})
+
+function updateCartButton() {
+
+var count = 0;
+window.cart.forEach(function (item, i) {
+
+count += Number(item.qty);
+});
+
+$('#items-in-cart').html(count);
+}
 </script>
 @endsection
