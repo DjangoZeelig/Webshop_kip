@@ -13,15 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/lp', [\App\Http\Controllers\PageController::class, 'showLandingPage']);
-Route::get('/lp/filter/{filter?}/{value?}', [\App\Http\Controllers\PageController::class, 'filter'])->name('app.landing');
+Route::get('/lp', [\App\Http\Controllers\PageController::class, 'showLandingPage']);
+// Route::get('/lp/filter/{filter?}/{value?}', [\App\Http\Controllers\PageController::class, 'filter'])->name('app.landing');
 
-Route::get('/lp/{filter?}/{value?}', [\App\Http\Controllers\PageController::class, 'index'])->name('app.landing');
+// Route::get('/lp/{filter?}/{value?}', [\App\Http\Controllers\PageController::class, 'index'])->name('app.landing');
+
+// Route::get('/store', [\App\Http\Controllers\Productcontroller::class, 'showStore']);
+
 Route::post('/lp/add-to-cart', [\App\Http\Controllers\PageController::class, 'addToCart']);
 
-Route::get('/article/1', [App\Http\Controllers\ProductController::class,'article']);
-
-Route::get('/products', [\App\Http\Controllers\ProductController::class, 'index']);
+// Route::get('/products', [\App\Http\Controllers\ProductController::class, 'index']);
 Route::get('/products/{id}', [\App\Http\Controllers\ProductController::class, 'show'])->name('products.show');
 
 Route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'index']);

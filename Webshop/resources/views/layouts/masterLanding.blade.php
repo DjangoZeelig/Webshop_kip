@@ -23,7 +23,7 @@
     <div id="app">
         <div >
             <main>
-                @include('partials.navbar')
+
                 @include('partials.filter')
 
                 @yield('content')

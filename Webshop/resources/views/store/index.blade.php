@@ -1,4 +1,4 @@
-@extends('layouts.cartmaster')
+@extends('layouts.master')
 
 @section('content')
 
@@ -13,7 +13,6 @@
 </div>
 
 <h1>Store</h1>
-@include('partials.filter')
 
 @if ($products->count() == 0)
 <tr>
@@ -31,7 +30,7 @@
 
 <div class="col-md-4">
   <div class="card mb-4 box-shadow">
-    <img class="card-img-top" data-src="http://placekitten.com/g/100/225" alt="Card image cap">
+    <img class="card-img-top" src="https://images.unsplash.com/photo-1618346146499-5a503b5e4893?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80" alt="Card image cap">
     <div class="card-body">
       <p class="card-text">{{ $product->category->name }} / {{$product->name}}</p>
       <div class="d-flex justify-content-between align-items-center">

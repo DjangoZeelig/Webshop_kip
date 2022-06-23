@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="row">
-        <h3>Our best sellers</h3>
+        <h3><strong>{{$product->name}}</strong></h3>
         <div class="col-md-7">
             <a href="#">
                 <img class="img-fluid rounded mb-3 mb-md-0"
@@ -13,15 +13,16 @@
             </a>
         </div>
         <div class="col-md-5">
-            @foreach($products as $product)
-            <li>{{$product->name}}</li>
-            @endforeach
+<ul>
+
+
             <li>{{$product->price}}</li>
             <li>{{$product->color}}</li>
             <li>{{$product->size}}</li>
             <li>{{$product->population}}</li>
             <li>{{$product->description}}</li>
-            <a class="btn btn-secondary" href="#">View Product</a>
+</u>
+            <a class="btn btn-secondary" href="#">Order product</a>
         </div>
     </div>
 
@@ -39,7 +40,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($products as $product)
+
             <td>{{$product->id}}</td>
             <td>{{$product->category_id}}</td>
             <td>{{$product->name}}</td>
@@ -49,7 +50,7 @@
             <td>{{$product->population}}</td>
             <td>{{$product->description}}</td>
             </tr>
-            @endforeach
+
         </tbody>
     </table> -->
     @endsection

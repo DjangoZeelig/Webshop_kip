@@ -15,7 +15,7 @@ class CategorySeeder extends Seeder
      * @return void
      */
     public function run()
-    //hier zit nog een error in.
+
     {
         DB::table('categories')->insert([
             'name' => 'Standaard',

@@ -47,7 +47,7 @@
                                     <td>{{ $product->highlighted }}</td>
                                     <td>
                                         <button type="button" data-bs-toggle="modal" data-bs-target="#updateAdminProductModal" wire:click="editProduct({{ $product->id }})" class="btn btn-primary">Edit</button>
-                                        <button type="button" data-bs-toggle="modal" data-bs-target="#deleteAdminProductModal" wire:click="deleteProduct({{ $product->id }})" class="btn btn-danger">Delete</button>
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#deleteAdminProductModal" wire:click="destroyProduct({{ $product->id }})" class="btn btn-danger">Delete</button>
                                     </td>
                                 </tr>
                             @empty

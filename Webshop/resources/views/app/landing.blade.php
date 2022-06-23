@@ -1,5 +1,22 @@
-@extends('layouts.master')
+@extends('layouts.masterLanding')
 @section('content')
+{{-- <a type="button" href="{{ route('store.index') }}"> Store </a> --}}
+
+<section class="landingHeader">
+    <h1>Villa KippenZicht</h1>
+    <p>Duurzame woningen voor de moderne kip</p>
+    <a class="nav-link" href="{{ route('store.index') }}">
+        <button class="GTS">
+        Bekijk onze kippenwoningen
+        </button>
+    </a>
+</section>
+
+<section style="background-color: #eee;">
+    <div class="container py-5">
+      <h4 class="text-center mb-5"><strong>Bestsellers</strong></h4>
+
+
 <ul class="cards">
     @foreach($products as $product)
     <li class="cards__item">
@@ -38,7 +55,92 @@
                 <p class="card__text">{{!!$product->name!!}}</p>
                 <button class="btn btn--block card__btn">Button</button>
             </div> -->
+
     @endforeach
     <!-- </div>
     </li> -->
-    @endsection
+
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<div class= "landingFooter">
+<div class="container py-5">
+
+    <footer class="bg-light text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-6 pb-0">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a
+          class="btn btn-primary btn-floating m-1"
+          style="background-color: #3b5998;"
+          href="#!"
+          role="button"
+          ><i class="fa-brands fa-facebook"></i
+        ></a>
+
+        <!-- Twitter -->
+        <a
+          class="btn btn-primary btn-floating m-1"
+          style="background-color: #55acee;"
+          href="#!"
+          role="button"
+          ><i class="fa-brands fa-twitter"></i
+        ></a>
+
+        <!-- Google -->
+        <a
+          class="btn btn-primary btn-floating m-1"
+          style="background-color: #dd4b39;"
+
+          role="button"
+          ><i class="fa-brands fa-google"></i
+        ></a>
+
+        <!-- Instagram -->
+        <a
+          class="btn btn-primary btn-floating m-1"
+          style="background-color: #ac2bac;"
+          role="button"
+          ><i class="fa-brands fa-instagram"></i
+        ></a>
+
+        <!-- Linkedin -->
+        <a
+          class="btn btn-primary btn-floating m-1"
+          style="background-color: #0082ca;"
+          href="#!"
+          role="button"
+          ><i class="fa-brands fa-linkedin-in"></i
+        ></a>
+        <!-- Github -->
+        <a
+          class="btn btn-primary btn-floating m-1"
+          style="background-color: #333333;"
+          href="#"
+          role="button"
+          ><i class="fa-brands fa-github"></i
+        ></a>
+      </section>
+      <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2022 Copyright:
+      <a class="text-white" href="#">VillaKippenZicht.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+  </div>
+</div>
+@endsection
+
+

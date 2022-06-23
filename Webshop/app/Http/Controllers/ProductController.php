@@ -12,11 +12,11 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $products = Product::all();
-        return view('products.index', compact('products'));
-    }
+    // public function index()
+    // {
+    //     $products = Product::all();
+    //     return view('products.index', compact('products'));
+    // }
 
     public function indexPaging()
     {
@@ -68,6 +68,16 @@ class ProductController extends Controller
         return view('products.detailpage', compact ('products'));
     }
 
+    public function show($id)
+    {
+        $product = Product::findOrFail($id);
+
+        return view('products.index', [
+            'product' => $product,
+        ]);
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -93,14 +103,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $product = Product::findOrFail($id);
 
-        return view('products.detail', [
-            'product' => $product,
-        ]);
-    }
     /**
      * Show the form for editing the specified resource.
      *

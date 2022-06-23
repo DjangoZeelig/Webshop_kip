@@ -87,8 +87,9 @@ class AdminProduct extends Component
         $this->product_id = $product_id;
     }
 
-    public function destroyProduct()
+    public function destroyProduct(int $product_id)
     {
+        $this->product_id = $product_id;
         Product::find($this->product_id)->delete();
         session()->flash('message', 'Product deleted successfully!');
         $this->dispatchBrowserEvent('close-modal');

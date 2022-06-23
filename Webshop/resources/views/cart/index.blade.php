@@ -2,14 +2,14 @@
 
 @section('content')
 
-<h1>Cart</h1>
+<h1>Winkelwagen</h1>
 
 <table class="table">
   <thead class="thead-dark">
     <tr>
       <th scope="col">Product</th>
-      <th scope="col">Price</th>
-      <th scope="col">Qty</th>
+      <th scope="col">Prijs</th>
+      <th scope="col">Aantal</th>
     </tr>
   </thead>
   <tbody>
